@@ -1,7 +1,6 @@
-<html>
-<head>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 {!! Form::open(['url' => "/student/{$student->id}",'method'=>'put']) !!}
 
@@ -103,5 +102,5 @@
 
 {!! Form::close() !!}
 
-</body>
-</html>
+
+@endsection

@@ -14,8 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('gachome');
 });
 Route::resource('student','StudentController');
 Route::get('student/{id}','StudentController@show');
-Route::get('createOrUpdate','StudentController@createOrUpdate');
+//Route::get('student/createOrUpdate','StudentController@createOrUpdate')->name('create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
