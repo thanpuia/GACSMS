@@ -6,55 +6,199 @@
     
         <h3 class="card-title">Student Data Enter</h3>
         {!! Form::open(['url' => '/student','method'=>'post']) !!}
+        
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name">Name</label><br>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="contact">Contact</label><br>
+                    <input type="text"  class="form-control" id="contact" name="contact">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
 
-        <div class="form-group">
-            <label for="name">Name</label><br>
-            <input type="text" class="form-control" id="name" name="name">
+                    <label for="sex">Sex</label><br>
+                    <select name="sex"  class="form-control">
+                        <option value="female">Female</option>
+                        <option value="Male">Male</option>
+                    </select>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="registration_number_college">Registration Number College</label><br>
-            <input type="text"  class="form-control" id="registration_number_college" name="registration_number_college">
+
+        <div class= "row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="fathers_mothers_name">Father's/Mother's Name</label><br>
+                    <input type="text" class="form-control" id="fathers_mothers_name" name="fathers_mothers_name">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="fathers_mothers_contact">Father's/Mother's Contact</label><br>
+                    <input type="text"  class="form-control" id="fathers_mothers_contact" name="fathers_mothers_contact">
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="registration_number_university">Registration Number University</label><br>
-            <input type="text" class="form-control" id="registration_number_university" name="registration_number_university">
+           
+        <div class= "row">
+            <div class="col">
+                <label for="permanent_home_address">Permanet Home Address</label><br>
+                <input type="text"  class="form-control" id="permanent_home_address" name="permanent_home_address">
+            </div>    
         </div>
-        <div class="form-group">
-            <label for="address">Address</label><br>
-            <input type="text" class="form-control" id="address" name="address">
+
+        <div class= "row">
+            <div class="col">
+                <label for="detailed_present_address_aizawl">Detailed Present Address (Aizawl)</label><br>
+                <input type="text"  class="form-control" id="detailed_present_address_aizawl" name="detailed_present_address_aizawl">
+            </div>
         </div>
-    
+
+        <div class= "row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="name_of_guardian">Name of Local Guardian (If any)</label><br>
+                    <input type="text" class="form-control" id="name_of_guardian" name="name_of_guardian">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="contact_of_guardian">Guardian Contact (If any)</label><br>
+                    <input type="text"  class="form-control" id="contact_of_guardian" name="contact_of_guardian">
+                </div>
+            </div>
+        </div>
+
+        <div class= "row">
+            <div class="col">
+                <label for="address_of_guardian">Address of Local Guardian (If any)</label><br>
+                <input type="text"  class="form-control" id="address_of_guardian" name="address_of_guardian">
+            </div>
+        </div>
+
+        <div class= "row">
+            <div class ="col">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" name="dob">
+            </div>
+            <div class="col">
+                <label for="community">Community</label>
+                <select name="community"  class="form-control">
+                    <option value="st">ST</option>
+                    <option value="sc">SC</option>
+                    <option value="obc">OBC</option>
+                    <option value="gen">Gen</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="religion">Religion</label>
+                <select name="religion" class="form-control">
+                    <option value="Christianity">Christianity</option>
+                    <option value="hinduism">Hinduism</option>
+                    <option value="islam">Islam</option>
+                    <option value="sikhism">Sikhism</option>
+                    <option value="buddhism">Buddhism</option>
+                    <option value="jainism">Jainism</option>
+                    <option value="zoroastrianism">Zoroastrianism</option>
+                    <option value="others">Others/Religion not specified </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="ration_card">Ration Card</label>
+                <select name="ration_card"  class="form-control">
+                    <option value="bpl">BPL</option>
+                    <option value="aay">AAY</option>
+                    <option value="apl">APL</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="handicapped">Handicapped</label>
+                <select name="handicapped"  class="form-control">
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="urban_rural">Urban Rural</label>
+                <select name="urban_rural"  class="form-control">
+                    <option value="urban" selected>Urban</option>
+                    <option value="rural">Rural</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="aadhaar">Aadhaar</label><br>
+                    <input type="text"  class="form-control" id="aadhaar" name="aadhaar">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="mzu_registration">MZU Registration</label><br>
+                    <input type="text"  class="form-control" id="mzu_registration" name="mzu_registration">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="college_registration">College Registration</label><br>
+                    <input type="text"  class="form-control" id="college_registration" name="college_registration">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="result">Result</label><br>
+                <input type="text"  class="form-control" id="result" name="result">
+            </div>
+        </div>
+
+
+
+        
         <br> <b>Semester I</b> <br>
         <div class="form-group form-check-inline">
           
                 <select name="sem1_sub1" class="form-control mr-3" >
                     @foreach ($subjects as $subject)
-                        <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                        <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                     @endforeach
                 </select>
             <select name="sem1_sub2" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
                 </select>
                 <select name="sem1_sub3" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
                 </select>
                 <select name="sem1_sub4" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
                 </select>
                 <select name="sem1_sub5" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
                 </select>
                 <select name="sem1_sub6" class="form-control mr-3">
                     @foreach ($subjects as $subject)
-                        <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                        <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                     @endforeach
                 </select>
         </div>
@@ -63,22 +207,22 @@
         <div class="form-group form-check-inline">
             <select name="sem2_sub1" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
             </select>
             <select name="sem2_sub2" class="form-control mr-3">
             @foreach ($subjects as $subject)
-                <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
             </select>
             <select name="sem2_sub3" class="form-control mr-3">
             @foreach ($subjects as $subject)
-                <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
             </select>
             <select name="sem2_sub4" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
             </select>
         </div>
@@ -87,22 +231,22 @@
         <div class="form-group form-check-inline">
             <select name="sem3_sub1" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
             </select>
             <select name="sem3_sub2" class="form-control mr-3">
             @foreach ($subjects as $subject)
-                <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
             </select>
             <select name="sem3_sub3" class="form-control mr-3">
             @foreach ($subjects as $subject)
-                <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
             </select>
             <select name="sem3_sub4" class="form-control mr-3">
                 @foreach ($subjects as $subject)
-                    <option value="{{ $subject->course_offering_name }}">{{ $subject->course_offering_name}}</option>
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
             </select>
         </div>

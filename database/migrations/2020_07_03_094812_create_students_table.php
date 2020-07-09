@@ -16,9 +16,28 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',60)->nullable();
-            $table->string('registration_number_college',60)->nullable();
-            $table->string('registration_number_university',60)->nullable();
-            $table->string('address',60)->nullable();
+            $table->string('contact',15)->nullable();
+            $table->string('fathers_mothers_name',60)->nullable();
+            $table->string('fathers_mothers_contact',15)->nullable();
+            $table->string('sex',10)->nullable();
+            $table->string('permanent_home_address',120)->nullable();
+            $table->string('detailed_present_address_aizawl',120)->nullable();
+            $table->string('name_of_guardian',60)->nullable();
+            $table->string('address_of_guardian',120)->nullable();
+            $table->string('contact_of_guardian',15)->nullable();
+            $table->date('dob',50)->nullable();
+            $table->string('community',20)->nullable();
+            $table->string('identification_mark',60)->nullable();
+            $table->string('religion',20)->nullable();
+            $table->string('ration_card',10)->nullable();
+            $table->string('handicapped',10)->nullable();
+            $table->string('urban_rural',10)->nullable();
+            $table->string('aadhaar',20)->nullable();
+            $table->string('mzu_registration',30)->nullable();
+            $table->string('college_registration',30)->nullable();
+            $table->string('result',10)->nullable(); 
+
+            
 
             $table->string('semester_one_subject_one',60)->nullable();
             $table->string('semester_one_subject_two',60)->nullable();

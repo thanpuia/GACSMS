@@ -19,33 +19,33 @@
 <b>Semester I</b>
     <select name="sem1_sub1">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_one ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_one ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
    <select name="sem1_sub2">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_two ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_two ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem1_sub3">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_three ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_three ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem1_sub4">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_four ?  'selected':''}}  >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_four ?  'selected':''}}  >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem1_sub5">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_five ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_five ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
    
     <select name="sem1_sub6">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_one_subject_six ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_one_subject_six ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
 
@@ -53,22 +53,22 @@
     <b>Semester II</b>
     <select name="sem2_sub1">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_two_subject_one ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_two_subject_one ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
    <select name="sem2_sub2">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_two_subject_two ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_two_subject_two ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem2_sub3">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_two_subject_three ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_two_subject_three ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem2_sub4">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_two_subject_four ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_two_subject_four ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
 
@@ -76,22 +76,22 @@
     <b>Semester III</b>
     <select name="sem3_sub1">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_three_subject_one ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_three_subject_one ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
    <select name="sem3_sub2">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem3_sub3">
     @foreach ($subjects as $subject)
-        <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+        <option value="{{ $subject->name }}" {{$subject->name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->name}}</option>
     @endforeach
     </select>
     <select name="sem3_sub4">
         @foreach ($subjects as $subject)
-            <option value="{{ $subject->course_offering_name }}" {{$subject->course_offering_name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->course_offering_name}}</option>
+            <option value="{{ $subject->name }}" {{$subject->name==$student->semester_three_subject_two ?  'selected':''}} >{{ $subject->name}}</option>
         @endforeach
     </select>
 
