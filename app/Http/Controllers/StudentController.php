@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
-use App\CourseTaken;
+use App\Acquire;
 
 class StudentController extends Controller
 {
@@ -13,13 +13,15 @@ class StudentController extends Controller
     public function index()
     {
       $students = Student::all();
-      return view('student.index',compact('students'));
+      $subjects = Course::all();
+
+      return view('student.index',compact('students','subjects'));
     }
 
     public function create()
     {
         $subjects = Course::all();
-
+     //   dd($subjects);
         return view ('student.create', compact('subjects') );
     }
 
@@ -27,55 +29,84 @@ class StudentController extends Controller
     {
         $student = new Student();
        // $student = createOrUpdate($student, $request);
-       $student->registration_number_college = $request['registration_number_college'];
-       $student->registration_number_university = $request['registration_number_university'];
-       $student->address = $request['address'];
-       $student->name = $request['name'];
-        //YEAR 1
-        $student->semester_one_subject_one = $request['sem1_sub1'];
-        $student->semester_one_subject_two = $request['sem1_sub2'];
-        $student->semester_one_subject_three = $request['sem1_sub3'];
-        $student->semester_one_subject_four = $request['sem1_sub4'];
-        $student->semester_one_subject_five = $request['sem1_sub5'];
-        $student->semester_one_subject_six = $request['sem1_sub6'];
-
-        $student->semester_two_subject_one = $request['sem2_sub1'];
-        $student->semester_two_subject_two = $request['sem2_sub2'];
-        $student->semester_two_subject_three = $request['sem2_sub3'];
-        $student->semester_two_subject_four = $request['sem2_sub4'];
-        $student->semester_two_subject_five = $request['sem2_sub5'];
-        $student->semester_two_subject_six = $request['sem2_sub6'];
-
-        //YEAR 2
-        $student->semester_three_subject_one = $request['sem3_sub1'];
-        $student->semester_three_subject_two = $request['sem3_sub2'];
-        $student->semester_three_subject_three = $request['sem3_sub3'];
-        $student->semester_three_subject_four = $request['sem3_sub4'];
-        $student->semester_three_subject_five = $request['sem3_sub5'];
-        $student->semester_three_subject_six = $request['sem3_sub6'];
-
-        $student->semester_four_subject_one = $request['sem4_sub1'];
-        $student->semester_four_subject_two = $request['sem4_sub2'];
-        $student->semester_four_subject_three = $request['sem4_sub3'];
-        $student->semester_four_subject_four = $request['sem4_sub4'];
-        $student->semester_four_subject_five = $request['sem4_sub5'];
-        $student->semester_four_subject_six = $request['sem4_sub6'];
-
-        //YEAR 3
-        $student->semester_five_subject_one = $request['sem5_sub1'];
-        $student->semester_five_subject_two = $request['sem5_sub2'];
-        $student->semester_five_subject_three = $request['sem5_sub3'];
-        $student->semester_five_subject_four = $request['sem5_sub4'];
-        $student->semester_five_subject_five = $request['sem5_sub5'];
-        $student->semester_five_subject_six = $request['sem5_sub6'];
-
-        $student->semester_six_subject_one = $request['sem6_sub1'];
-        $student->semester_six_subject_two = $request['sem6_sub2'];
-        $student->semester_six_subject_three = $request['sem6_sub3'];
-        $student->semester_six_subject_four = $request['sem6_sub4'];
-        $student->semester_six_subject_five = $request['sem6_sub5'];
-        $student->semester_six_subject_six = $request['sem6_sub6'];
+        $student->name = $request['name'];
+        $student->contact = $request['contact'];
+        $student->fathers_mothers_name = $request['fathers_mothers_name'];
+        $student->fathers_mothers_contact = $request['fathers_mothers_contact'];
+        $student->sex = $request['sex'];
+        $student->permanent_home_address = $request['permanent_home_address'];
+        $student->detailed_present_address_aizawl = $request['detailed_present_address_aizawl'];
+        $student->name_of_guardian = $request['name_of_guardian'];
+        $student->address_of_guardian = $request['address_of_guardian'];
+        $student->contact_of_guardian = $request['contact_of_guardian'];
+        $student->dob = $request['dob'];
+        $student->community = $request['community'];
+        $student->identification_mark = $request['identification_mark'];
+        $student->religion = $request['religion'];
+        $student->ration_card = $request['ration_card'];
+        $student->handicapped = $request['handicapped'];
+        $student->urban_rural = $request['urban_rural'];
+        $student->aadhaar = $request['aadhaar'];
+        $student->mzu_registration = $request['mzu_registration'];
+        $student->college_registration = $request['college_registration'];
+        $student->result = $request['result'];
         $student->save();  
+
+
+       $acquire = new Acquire();
+        $acquire->student_id = $student->id;
+         //YEAR 1
+         $acquire->sem1_sub1 = $request['sem1_sub1'];
+         $acquire->sem1_sub2 = $request['sem1_sub2'];
+         $acquire->sem1_sub3 = $request['sem1_sub3'];
+         
+         $acquire->sem2_sub1 = $request['sem2_sub1'];
+         $acquire->sem2_sub2 = $request['sem2_sub2'];
+         $acquire->sem2_sub3 = $request['sem2_sub3'];
+         //YEAR 2
+         $acquire->sem3_sub1 = $request['sem3_sub1'];
+         $acquire->sem3_sub2 = $request['sem3_sub2'];
+         $acquire->sem3_sub3 = $request['sem3_sub3'];
+         
+         $acquire->sem4_sub1 = $request['sem4_sub1'];
+         $acquire->sem4_sub2 = $request['sem4_sub2'];
+         $acquire->sem4_sub3 = $request['sem4_sub3'];
+ 
+         //YEAR 3
+         $acquire->sem5_sub1 = $request['sem5_sub1'];
+         $acquire->sem5_sub2 = $request['sem5_sub2'];
+         $acquire->sem5_sub3 = $request['sem5_sub3'];
+         
+         $acquire->sem6_sub1 = $request['sem6_sub1'];
+         $acquire->sem6_sub2 = $request['sem6_sub2'];
+         $acquire->sem6_sub3 = $request['sem6_sub3'];
+ 
+         $acquire->save();
+
+
+        // $student->semester_four_subject_one = $request['sem4_sub1'];
+        // $student->semester_four_subject_two = $request['sem4_sub2'];
+        // $student->semester_four_subject_three = $request['sem4_sub3'];
+        // $student->semester_four_subject_four = $request['sem4_sub4'];
+        // $student->semester_four_subject_five = $request['sem4_sub5'];
+        // $student->semester_four_subject_six = $request['sem4_sub6'];
+
+        // //YEAR 3
+        // $student->semester_five_subject_one = $request['sem5_sub1'];
+        // $student->semester_five_subject_two = $request['sem5_sub2'];
+        // $student->semester_five_subject_three = $request['sem5_sub3'];
+        // $student->semester_five_subject_four = $request['sem5_sub4'];
+        // $student->semester_five_subject_five = $request['sem5_sub5'];
+        // $student->semester_five_subject_six = $request['sem5_sub6'];
+
+        // $student->semester_six_subject_one = $request['sem6_sub1'];
+        // $student->semester_six_subject_two = $request['sem6_sub2'];
+        // $student->semester_six_subject_three = $request['sem6_sub3'];
+        // $student->semester_six_subject_four = $request['sem6_sub4'];
+        // $student->semester_six_subject_five = $request['sem6_sub5'];
+        // $student->semester_six_subject_six = $request['sem6_sub6'];
+
+       
         
         //return redirect()->route('student', [$student->id]);      
         return "Create success";
@@ -83,9 +114,10 @@ class StudentController extends Controller
 
     public function show($id)
     {
+       // dd("sdf00");
          $student = Student::find($id);
        //  $courseTaken = CourseTaken ::where ('student_id','=',$id)->get();
-        //dd($courseTaken);
+       // dd($student->acquire->sem1_sub1);
                      
         return view ('student.show', compact('student'));
         
@@ -102,60 +134,92 @@ class StudentController extends Controller
 
     public function update(Request $request, $id)
     {
-
         $student = Student::find($id);
 
       //  $student = $this->createOrUpdate($student, $request);
+        $student->name = $request['name'];
+        $student->contact = $request['contact'];
+        $student->fathers_mothers_name = $request['fathers_mothers_name'];
+        $student->fathers_mothers_contact = $request['fathers_mothers_contact'];
+        $student->sex = $request['sex'];
+        $student->permanent_home_address = $request['permanent_home_address'];
+        $student->detailed_present_address_aizawl = $request['detailed_present_address_aizawl'];
+        $student->name_of_guardian = $request['name_of_guardian'];
+        $student->address_of_guardian = $request['address_of_guardian'];
+        $student->contact_of_guardian = $request['contact_of_guardian'];
+        $student->dob = $request['dob'];
+        $student->community = $request['community'];
+        $student->identification_mark = $request['identification_mark'];
+        $student->religion = $request['religion'];
+        $student->ration_card = $request['ration_card'];
+        $student->handicapped = $request['handicapped'];
+        $student->urban_rural = $request['urban_rural'];
+        $student->aadhaar = $request['aadhaar'];
+        $student->mzu_registration = $request['mzu_registration'];
+        $student->college_registration = $request['college_registration'];
+        $student->result = $request['result'];
+        
+        $student->save();
 
-      $student->registration_number_college = $request['registration_number_college'];
-      $student->registration_number_university = $request['registration_number_university'];
-      $student->address = $request['address'];
-      $student->name = $request['name'];
+        $acquire = $student->acquire;
+
+        //dd($acquire);
+        //$acquire->student_id = $id;
         //YEAR 1
-        $student->semester_one_subject_one = $request['sem1_sub1'];
-        $student->semester_one_subject_two = $request['sem1_sub2'];
-        $student->semester_one_subject_three = $request['sem1_sub3'];
-        $student->semester_one_subject_four = $request['sem1_sub4'];
-        $student->semester_one_subject_five = $request['sem1_sub5'];
-        $student->semester_one_subject_six = $request['sem1_sub6'];
+        $acquire->sem1_sub1 = $request['sem1_sub1'];
+        $acquire->sem1_sub2 = $request['sem1_sub2'];
+        $acquire->sem1_sub3 = $request['sem1_sub3'];
 
-        $student->semester_two_subject_one = $request['sem2_sub1'];
-        $student->semester_two_subject_two = $request['sem2_sub2'];
-        $student->semester_two_subject_three = $request['sem2_sub3'];
-        $student->semester_two_subject_four = $request['sem2_sub4'];
-        $student->semester_two_subject_five = $request['sem2_sub5'];
-        $student->semester_two_subject_six = $request['sem2_sub6'];
+        $acquire->sem2_sub1 = $request['sem2_sub1'];
+        $acquire->sem2_sub2 = $request['sem2_sub2'];
+        $acquire->sem2_sub3 = $request['sem2_sub3'];
 
-        //YEAR 2
-        $student->semester_three_subject_one = $request['sem3_sub1'];
-        $student->semester_three_subject_two = $request['sem3_sub2'];
-        $student->semester_three_subject_three = $request['sem3_sub3'];
-        $student->semester_three_subject_four = $request['sem3_sub4'];
-        $student->semester_three_subject_five = $request['sem3_sub5'];
-        $student->semester_three_subject_six = $request['sem3_sub6'];
+         //YEAR 2
+        $acquire->sem3_sub1 = $request['sem3_sub1'];
+        $acquire->sem3_sub2 = $request['sem3_sub2'];
+        $acquire->sem3_sub3 = $request['sem3_sub3'];
 
-        $student->semester_four_subject_one = $request['sem4_sub1'];
-        $student->semester_four_subject_two = $request['sem4_sub2'];
-        $student->semester_four_subject_three = $request['sem4_sub3'];
-        $student->semester_four_subject_four = $request['sem4_sub4'];
-        $student->semester_four_subject_five = $request['sem4_sub5'];
-        $student->semester_four_subject_six = $request['sem4_sub6'];
+        $acquire->sem4_sub1 = $request['sem4_sub1'];
+        $acquire->sem4_sub2 = $request['sem4_sub2'];
+        $acquire->sem4_sub3 = $request['sem4_sub3'];
 
         //YEAR 3
-        $student->semester_five_subject_one = $request['sem5_sub1'];
-        $student->semester_five_subject_two = $request['sem5_sub2'];
-        $student->semester_five_subject_three = $request['sem5_sub3'];
-        $student->semester_five_subject_four = $request['sem5_sub4'];
-        $student->semester_five_subject_five = $request['sem5_sub5'];
-        $student->semester_five_subject_six = $request['sem5_sub6'];
+        $acquire->sem5_sub1 = $request['sem5_sub1'];
+        $acquire->sem5_sub2 = $request['sem5_sub2'];
+        $acquire->sem5_sub3 = $request['sem5_sub3'];
 
-        $student->semester_six_subject_one = $request['sem6_sub1'];
-        $student->semester_six_subject_two = $request['sem6_sub2'];
-        $student->semester_six_subject_three = $request['sem6_sub3'];
-        $student->semester_six_subject_four = $request['sem6_sub4'];
-        $student->semester_six_subject_five = $request['sem6_sub5'];
-        $student->semester_six_subject_six = $request['sem6_sub6'];
-        $student->save();  
+        $acquire->sem6_sub1 = $request['sem6_sub1'];
+        $acquire->sem6_sub2 = $request['sem6_sub2'];
+        $acquire->sem6_sub3 = $request['sem6_sub3'];
+
+        //dd($acquire);
+        $acquire->update();
+        //$acquire->save(); 
+        
+        //  $student->save();
+
+        // $student->semester_four_subject_one = $request['sem4_sub1'];
+        // $student->semester_four_subject_two = $request['sem4_sub2'];
+        // $student->semester_four_subject_three = $request['sem4_sub3'];
+        // $student->semester_four_subject_four = $request['sem4_sub4'];
+        // $student->semester_four_subject_five = $request['sem4_sub5'];
+        // $student->semester_four_subject_six = $request['sem4_sub6'];
+
+        // //YEAR 3
+        // $student->semester_five_subject_one = $request['sem5_sub1'];
+        // $student->semester_five_subject_two = $request['sem5_sub2'];
+        // $student->semester_five_subject_three = $request['sem5_sub3'];
+        // $student->semester_five_subject_four = $request['sem5_sub4'];
+        // $student->semester_five_subject_five = $request['sem5_sub5'];
+        // $student->semester_five_subject_six = $request['sem5_sub6'];
+
+        // $student->semester_six_subject_one = $request['sem6_sub1'];
+        // $student->semester_six_subject_two = $request['sem6_sub2'];
+        // $student->semester_six_subject_three = $request['sem6_sub3'];
+        // $student->semester_six_subject_four = $request['sem6_sub4'];
+        // $student->semester_six_subject_five = $request['sem6_sub5'];
+        // $student->semester_six_subject_six = $request['sem6_sub6'];
+        
     
 
        // return redirect()->route('student', [ $id]);   
@@ -178,4 +242,82 @@ class StudentController extends Controller
 
     //     return $student;
     // }
+
+    public function func(){
+        return "fuke";
+    }
+    public function fun(){
+        return "duke";
+    }
+
+    //QUERY LIST HO
+
+    // 1. 	Mimal  Details/information kimchang enna 
+    public function studentInfo(){
+        return "student info";
+        
+    }
+    
+    // 2. Hming inang ho zawnna
+    public function searchByName(Request $request){
+        $name = $request['name'];
+        $students = Student::where("name","like","%".$name."%")->get();
+        return view('student.filter',compact('students'));
+    }
+
+    // 3. 4. 	Subject in ang ho zawng lakchhuahna && Core Subject inang ho zawng lakchuahna
+    public function searchBySubject(Request $request){
+        $subject = $request['subject'];
+        $acquires = Acquire::where("sem1_sub1","like",$subject)
+        ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+        ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+        ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
+        ->get();
+       
+
+        return view('student.filterinverse',compact('acquires','subject'));
+    }
+
+    // 5. 	Sakhua (Religion) inang ho zawnchhuahna, Semester WiseA 
+    public function searchByReligion(Request $request){
+        $religion = $request['religion'];
+
+        $students = Student::where("religion","LIKE","%".$religion."%")->get();
+        return view('student.filter',compact('students'));
+        
+    }
+    // 6. Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)
+    public function searchByCommunity(){
+        return "community";
+    }
+    
+    // 7. Semester Wise a zirlai awm zat te, Mipa leh Hmeichhia zat a hrang a enna.
+    public function searchBySemester(){
+        //THIS INCLUDE FILTER BY GENDER
+        return "semester wise";
+    }
+
+    // 8. Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise 
+    public function searchByResult(){
+
+        return "result";
+    }
+
+    // 9. Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem
+    public function listAll(){
+
+        return "list all";
+    }
+
+    // 10. Urban leh Rural zat semester Wise
+    public function searchByArea(){
+
+        return "area";
+    }
+
+    // 11. Disabled zat hriatna/list
+    public function searchByDisabled(){
+
+        return "disable";
+    }
 }

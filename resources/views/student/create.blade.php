@@ -176,7 +176,7 @@
                         <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                     @endforeach
                 </select>
-            <select name="sem1_sub2" class="form-control mr-3">
+                <select name="sem1_sub2" class="form-control mr-3">
                 @foreach ($subjects as $subject)
                     <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
@@ -186,21 +186,7 @@
                     <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
                 </select>
-                <select name="sem1_sub4" class="form-control mr-3">
-                @foreach ($subjects as $subject)
-                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
-                @endforeach
-                </select>
-                <select name="sem1_sub5" class="form-control mr-3">
-                @foreach ($subjects as $subject)
-                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
-                @endforeach
-                </select>
-                <select name="sem1_sub6" class="form-control mr-3">
-                    @foreach ($subjects as $subject)
-                        <option value="{{ $subject->name }}">{{ $subject->name}}</option>
-                    @endforeach
-                </select>
+               
         </div>
 
         <br> <b>Semester II</b> <br>
@@ -219,11 +205,6 @@
             @foreach ($subjects as $subject)
                 <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
-            </select>
-            <select name="sem2_sub4" class="form-control mr-3">
-                @foreach ($subjects as $subject)
-                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
-                @endforeach
             </select>
         </div>
 
@@ -244,10 +225,59 @@
                 <option value="{{ $subject->name }}">{{ $subject->name}}</option>
             @endforeach
             </select>
-            <select name="sem3_sub4" class="form-control mr-3">
+        </div>
+    <br> <b>Semester IV</b> <br>
+        <div class="form-group form-check-inline">
+            <select name="sem4_sub1" class="form-control mr-3">
                 @foreach ($subjects as $subject)
                     <option value="{{ $subject->name }}">{{ $subject->name}}</option>
                 @endforeach
+            </select>
+            <select name="sem4_sub2" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
+            </select>
+            <select name="sem4_sub3" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
+            </select>
+        </div>
+    <br> <b>Semester V</b> <br>
+        <div class="form-group form-check-inline">
+            <select name="sem5_sub1" class="form-control mr-3">
+                @foreach ($subjects as $subject)
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+                @endforeach
+            </select>
+            <select name="sem5_sub2" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
+            </select>
+            <select name="sem5_sub3" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
+            </select>
+        </div>
+    <br> <b>Semester VI</b> <br>
+        <div class="form-group form-check-inline">
+            <select name="sem6_sub1" class="form-control mr-3">
+                @foreach ($subjects as $subject)
+                    <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+                @endforeach
+            </select>
+            <select name="sem6_sub2" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
+            </select>
+            <select name="sem6_sub3" class="form-control mr-3">
+            @foreach ($subjects as $subject)
+                <option value="{{ $subject->name }}">{{ $subject->name}}</option>
+            @endforeach
             </select>
         </div>
     <br>

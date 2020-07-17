@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    public function course()
+    public function acquire()
     {
-        return $this->belongsTo('App\Course');
+        return $this->hasOne('App\Acquire');
     }
 }

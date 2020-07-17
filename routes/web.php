@@ -2,31 +2,25 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('gachome');
 });
-Route::resource('student','StudentController');
-Route::get('student/{id}','StudentController@show');
+
+//Route::get('student/{id}','StudentController@show');
 //Route::get('student/createOrUpdate','StudentController@createOrUpdate')->name('create');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/student/fun','StudentController@fun')->name('f1');
+Route::get('/student/func','StudentController@func')->name('f2');
+
+Route::post('/student/studentinfo','StudentController@studentInfo')->name('studentInfo');
+Route::post('/student/searchbyname','StudentController@searchByName')->name('searchByName');
+Route::post('/student/searchbysubject','StudentController@searchBySubject')->name('searchBySubject');
+Route::post('/student/searchbyreligion','StudentController@searchByReligion')->name('searchByReligion');
+
+
+Route::resource('student','StudentController');
+
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
