@@ -22,19 +22,65 @@
 <input type="submit" class="btn" value="Submit">
 {!! Form::close() !!} 
 
+
 {!! Form::open(['url' => '/student/searchbyreligion','method'=>'post']) !!}
 <label for="religion">Search by Religion</label>
-<input type="text" name="religion" id="religion">
-    
+<input type="text" name="religion" id="religion">    
 <input type="submit" class="btn" value="Submit">
 {!! Form::close() !!} 
 
-<a href='/'>1.	Mimal  Details/information kimchang enna (Get Student Info) </a> <br>
-<a href='/'>2.	Hming inang ho zawnna(Search by Name)</a><br>
-<a href='/'>3.	Subject in ang ho zawng lakchhuahna (A hming list leh a zat hriat nan)(Search by Subject)</a><br>
-<a href='/'>4.	Core Subject inang ho zawng lakchuahna (Hming leh a zat) </a><br>
-<a href='/'>5.	Sakhua (Religion) inang ho zawnchhuahna, Semester WiseA (Search By Religion)(Filter by semester)</a><br>
-<a href='/'>6.	Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)(Search by community)</a><br>
+
+{!! Form::open(['url' => '/student/searchbycommunity','method'=>'post']) !!}
+    <label for="community">Search by Community</label>
+    <select name="community" >
+        <option value="st">ST</option>
+        <option value="sc">SC</option>
+        <option value="obc">OBC</option>
+        <option value="gen">Gen</option>
+    </select>
+    <input type="submit" class="btn" value="Submit">
+{!! Form::close() !!}
+
+
+{!! Form::open(['url' => '/student/searchbysemester','method'=>'post']) !!}
+<label for="semester">Search by Semester</label>
+<select name="semester" >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>   
+<input type="submit" class="btn" value="Submit">
+{!! Form::close() !!} 
+
+
+{!! Form::open(['url' => '/student/searchbyarea','method'=>'post']) !!}
+<label for="area">Search by Area</label>
+<select name="area" >
+        <option value="urban">Urban</option>
+        <option value="rural">Rural</option>
+    </select>   
+<input type="submit" class="btn" value="Submit">
+{!! Form::close() !!} 
+
+
+{!! Form::open(['url' => '/student/searchbydisabled','method'=>'post']) !!}
+<label for="handicapped">Search by Handicapped</label>
+<select name="handicapped" >
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+    </select>   
+<input type="submit" class="btn" value="Submit">
+{!! Form::close() !!} 
+
+<a href='/'>1. Mimal  Details/information kimchang enna (Get Student Info) </a> <br>
+<a href='/'>2. Hming inang ho zawnna(Search by Name)</a><br>
+<a href='/'>3. Subject in ang ho zawng lakchhuahna (A hming list leh a zat hriat nan)(Search by Subject)</a><br>
+<a href='/'>4. Core Subject inang ho zawng lakchuahna (Hming leh a zat) </a><br>
+<a href='/'>5. Sakhua (Religion) inang ho zawnchhuahna, Semester WiseA (Search By Religion)(Filter by semester)</a><br>
+<a href='/'>6. Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)(Search by community)</a><br>
 <a href='/'>7.	Semester Wise a zirlai awm zat te, Mipa leh Hmeichhia zat a hrang a enna.(Search by semsester)(FilterbyGender)</a><br>
 <a href='/'>8.	Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise (Search by result)</a><br>
 <a href='/'>9.	Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem? (List all)</a><br>

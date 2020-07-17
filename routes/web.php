@@ -20,6 +20,15 @@ Route::post('/student/searchbyname','StudentController@searchByName')->name('sea
 Route::post('/student/searchbysubject','StudentController@searchBySubject')->name('searchBySubject');
 Route::post('/student/searchbyreligion','StudentController@searchByReligion')->name('searchByReligion');
 
+Route::post('/student/searchbycommunity','StudentController@searchByCommunity')->name('searchByCommunity');
+Route::post('/student/searchbysemester','StudentController@searchBySemester')->name('searchBySemester');
+Route::post('/student/searchbyresult','StudentController@searchByResult')->name('searchByResult');
+Route::post('/student/listall','StudentController@listAll')->name('listAll');
+
+Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
+Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');
+
+
 
 Route::resource('student','StudentController');
 

@@ -287,14 +287,19 @@ class StudentController extends Controller
         
     }
     // 6. Semester Wise Community inang ho zawng zawn chhuahna b (a zat leh an hming list)
-    public function searchByCommunity(){
-        return "community";
+    public function searchByCommunity(Request $request){
+        $community = $request['community'];
+        $students = Student::where("community","LIKE",$community)->get();
+
+        return view('student.filter',compact('students'));
     }
     
     // 7. Semester Wise a zirlai awm zat te, Mipa leh Hmeichhia zat a hrang a enna.
-    public function searchBySemester(){
-        //THIS INCLUDE FILTER BY GENDER
-        return "semester wise";
+    public function searchBySemester(Request $request){
+        $semester = $request['semester'];
+        $students = Student::where("semester","LIKE",$semester)->get();
+
+        return view('student.filter',compact('students'));
     }
 
     // 8. Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise 
@@ -310,14 +315,19 @@ class StudentController extends Controller
     }
 
     // 10. Urban leh Rural zat semester Wise
-    public function searchByArea(){
+    public function searchByArea(Request $request){
+        $area = $request['area'];
+       // dd($area);
+        $students = Student::where("urban_rural","LIKE",$area)->get();
 
-        return "area";
+        return view('student.filter',compact('students'));
     }
 
     // 11. Disabled zat hriatna/list
-    public function searchByDisabled(){
+    public function searchByDisabled(Request $request){
+        $handicapped = $request['handicapped'];
+        $students = Student::where("handicapped","LIKE",$handicapped)->get();
 
-        return "disable";
+        return view('student.filter',compact('students'));
     }
 }
