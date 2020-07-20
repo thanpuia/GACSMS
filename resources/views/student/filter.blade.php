@@ -1,25 +1,38 @@
 @extends('layouts.app')
 @section('content')
+<div class="container">
+        <div class="table-responsive">
+            <table class="table-bordered table-sm">
+            <tr>
+                <th>Name </th>
+                <th>Roll No</th>
+                <th>University No</th>
+                <th>Semester</th>
+                <th>Core Subject</th>
+                <th>Community</th>
+                <th>Handicapped</th>
+                <th>Religion</th>
+                <th>Address</th>
+            
+                <th>View</th>
+            </tr>
 
-<table class="table table-dark">
-<tr>
-    <th>Name </th>
-    <th>College ROll no</th>
-    <th>Uni Roll no</th>
-    <th>Address</th>
-    
-    <th>View</th>
-</tr>
+            @foreach($students as $student)
+            <tr>
+                <td>{{$student->name}}</td>
+                <td>{{$student->college_registration}}</td>
+                <td>{{$student->mzu_registration}}</td>
+                <td>{{$student->semester}}</td>
+                <td>{{$student->acquire->sem1_sub1}}</td>
+                <td>{{$student->community}}</td>
+                <td>{{$student->handicapped}}</td>
+                <td>{{$student->religion}}</td>
+                <td>{{$student->present_home_address}}</td>
 
-@foreach($students as $student)
-<tr>
-    <td>{{$student->name}}</td>
-    <td>{{$student->mzu_registration}}</td>
-    <td>{{$student->college_registration}}</td>
-    <td>{{$student->sex}}</td>
-   
-    <td><a href='/student/{{$student->id}}' class="btn btn-info">show</a>   </td>
-</tr>
-@endforeach
-</table>
+                <td><a href='/student/{{$student->id}}' class="btn btn-info">show</a>   </td>
+            </tr>
+            @endforeach
+            </table>
+        </div>
+</div>
 @endsection

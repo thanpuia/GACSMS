@@ -100,7 +100,7 @@
             <div class="col">
                 <label for="religion">Religion</label>
                 <select name="religion" class="form-control">
-                    <option value="Christianity">Christianity</option>
+                    <option value="christianity">Christianity</option>
                     <option value="hinduism">Hinduism</option>
                     <option value="islam">Islam</option>
                     <option value="sikhism">Sikhism</option>
