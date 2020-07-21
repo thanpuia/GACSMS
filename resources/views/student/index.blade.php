@@ -30,8 +30,8 @@
 
 {!! Form::open(['url' => '/student/filterby','method'=>'post']) !!}
 
-<label for="name">Search by subject</label>
-<select name="subject">
+<label for="subject">Subject</label>
+<select name="subject" id="subject">
     @foreach($subjects as $subject)
         <option value="{{ $subject->name}}">{{$subject->name}} </option>
     @endforeach
@@ -39,7 +39,7 @@
 
 <br>
 
-<label for="religion">Search by Religion</label>
+<label for="religion">Religion</label>
 <select name="religion" >
     <option value="none">None</option>
     <option value="christianity">Christianity</option>
@@ -54,7 +54,7 @@
 
 <br>
 
-<label for="community">Search by Community</label>
+<label for="community">Community</label>
 <select name="community" >
     <option value="none">none/all</option>
     <option value="st">ST</option>
@@ -65,7 +65,7 @@
 
 <br>
 
-<label for="semester">Search by Semester</label>
+<label for="semester">Semester</label>
 <select name="semester" >
         <option value="none">none/all</option>
         <option value="1">1</option>
@@ -78,7 +78,7 @@
 
     <br>
 
-<label for="area">Search by Area</label>
+<label for="area">Area</label>
 <select name="area" >
     <option value="none">none/all</option>
     <option value="urban">Urban</option>
@@ -87,12 +87,21 @@
 
 <br>
 
-<label for="handicapped">Search by Handicapped</label>
+<label for="handicapped">Handicapped</label>
 <select name="handicapped" >
     <option value="none">none</option>
     <option value="no">No</option>
     <option value="yes">Yes</option>
 </select>   
+
+<br>
+
+<label for="sex">Sex</label>
+<select name="sex">
+    <option value="none">none</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+</select> 
 
 <br>
 

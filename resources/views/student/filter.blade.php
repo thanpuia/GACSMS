@@ -23,11 +23,12 @@
                 <td>{{$student->college_registration}}</td>
                 <td>{{$student->mzu_registration}}</td>
                 <td>{{$student->semester}}</td>
-                <td>{{$student->acquire->sem1_sub1}}</td>
+                <td>{{$student->sem1_sub1}}</td>
                 <td>{{$student->community}}</td>
                 <td>{{$student->handicapped}}</td>
                 <td>{{$student->religion}}</td>
-                <td>{{$student->present_home_address}}</td>
+                <td>{{$student->detailed_present_address_aizawl}}</td>
+
 
                 <td><a href='/student/{{$student->id}}' class="btn btn-info">show</a>   </td>
             </tr>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Course;
 use App\Acquire;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -268,7 +269,8 @@ class StudentController extends Controller
     // 3. 4. 	Subject in ang ho zawng lakchhuahna && Core Subject inang ho zawng lakchuahna
     public function searchBySubject(Request $request){
         $subject = $request['subject'];
-        $acquires = Acquire::where("sem1_sub1","like",$subject)
+        $acquires = Acquire::
+        where("sem1_sub1","like",$subject)
         ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
         ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
         ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject)
@@ -339,19 +341,76 @@ class StudentController extends Controller
         $student=null;
 
         if($searchBy=="name"){
-            $students = Student::where("name","like","%".$keyword."%")->get();
+           // $students = Student::where("name","like","%".$keyword."%")->get();
+           $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("name","like","%".$keyword."%")->get();
         }
         else if($searchBy=="collegeno"){
-            $students = Student::where("college_registration","like","%".$keyword."%")->get();
+           // $students = Student::where("college_registration","like","%".$keyword."%")->get();
+           $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("college_registration","like","%".$keyword."%")->get();
         }
         else if($searchBy=="universityno"){
-            $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
+           // $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
+            $students = DB::table('students')
+                ->join('acquires','students.id','=','acquires.student_id')
+                ->select('students.*','acquires.*')
+                ->where("mzu_registration","like","%".$keyword."%")->get();
         }
         else if($searchBy=="aadhaar"){
-            $students = Student::where("aadhaar","like","%".$keyword."%")->get();
+            //$students = Student::where("aadhaar","like","%".$keyword."%")->get();
+            $students = DB::table('students')
+                            ->join('acquires','students.id','=','acquires.student_id')
+                            ->select('students.*','acquires.*')
+                            ->where("aadhaar","like","%".$keyword."%")->get();
         }
 
         return view('student.filter',compact('students'));
     }
-    
+
+    public function filterBy(Request $request){
+        
+        $subject        = $request['subject'];
+        $religion       = $request['religion'];
+        $community      = $request['community'];
+        $semester       = $request['semester'];
+        $area           = $request['area'];
+        $handicapped    = $request['handicapped'];
+
+        $students = DB::table('students')
+                        ->join('acquires','students.id','=','acquires.student_id') 
+                        ->select('students.*','acquires.*')
+                        ->where(function($q) use($subject,$religion,$community,$semester,$area,$handicapped){
+            if($subject!="none"){
+                $q->where("sem1_sub1","like",$subject)
+                ->orWhere("sem1_sub2","like",$subject)->orWhere("sem1_sub3","like",$subject)
+                ->orWhere("sem2_sub1","like",$subject)->orWhere("sem2_sub2","like",$subject)->orWhere("sem2_sub3","like",$subject)
+                ->orWhere("sem3_sub1","like",$subject)->orWhere("sem3_sub2","like",$subject)->orWhere("sem3_sub3","like",$subject);
+            
+            }
+            if($religion!="none"){
+                $q->where("students.religion",'LIKE',$religion);
+            }
+            if($community!="none"){
+                $q->where("students.community",'LIKE',$community);
+
+            }
+            if($semester!="none"){
+                $q->where("students.semester",'LIKE',$semester);
+            }
+            if($area!="none"){
+                $q->where("students.area",'LIKE',$area);
+            }
+            if($handicapped!="none"){
+                $q->where("students.handicapped",'LIKE',$handicapped);
+            }
+        })->get();
+       // dd($students);
+
+        return view('student.filter',compact('students'));
+    }
 }
