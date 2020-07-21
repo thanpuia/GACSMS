@@ -1,18 +1,107 @@
 @extends('layouts.app')
 @section('content')
 
-<a href='/student/function1/'>Mimal detail </a>
-<a href='/student/function2/'>DUKE detail </a>
 
+<h2>Search by</h2>
+{!! Form::open(['url' => '/student/searchby','method'=>'post']) !!}
+    <label for="searchby">Search by </label>
+    <select name="searchby" >
+        <option value="name">Name</option>
+        <option value="collegeno">College No</option>
+        <option value="universityno">University No</option>
+        <option value="aadhaar">Aadhaar</option>
+    
+    </select>
+    <input type = "text" id="keyword" name="keyword">
+    <input type="submit" class="btn" value="Search">
+{!! Form::close() !!}
 
+<br>
+<br>
 
-{!! Form::open(['url' => '/student/searchbyname','method'=>'post']) !!}
+<!-- {!! Form::open(['url' => '/student/searchbyname','method'=>'post']) !!}
 <label for="name">Search by Name</label>
 <input type="text" id="name" name="name">
+<input type="submit" class="btn" value="Submit">
+{!! Form::close() !!}  -->
+
+<h2>Filter by</h2>
+
+
+{!! Form::open(['url' => '/student/filterby','method'=>'post']) !!}
+
+<label for="name">Search by subject</label>
+<select name="subject">
+    @foreach($subjects as $subject)
+        <option value="{{ $subject->name}}">{{$subject->name}} </option>
+    @endforeach
+</select>
+
+<br>
+
+<label for="religion">Search by Religion</label>
+<select name="religion" >
+    <option value="none">None</option>
+    <option value="christianity">Christianity</option>
+    <option value="hinduism">Hinduism</option>
+    <option value="islam">Islam</option>
+    <option value="sikhism">Sikhism</option>
+    <option value="buddhism">Buddhism</option>
+    <option value="jainism">Jainism</option>
+    <option value="zoroastrianism">Zoroastrianism</option>
+    <option value="others">Others/Religion not specified </option>
+</select>
+
+<br>
+
+<label for="community">Search by Community</label>
+<select name="community" >
+    <option value="none">none/all</option>
+    <option value="st">ST</option>
+    <option value="sc">SC</option>
+    <option value="obc">OBC</option>
+    <option value="gen">Gen</option>
+</select>
+
+<br>
+
+<label for="semester">Search by Semester</label>
+<select name="semester" >
+        <option value="none">none/all</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>   
+
+    <br>
+
+<label for="area">Search by Area</label>
+<select name="area" >
+    <option value="none">none/all</option>
+    <option value="urban">Urban</option>
+    <option value="rural">Rural</option>
+</select>
+
+<br>
+
+<label for="handicapped">Search by Handicapped</label>
+<select name="handicapped" >
+    <option value="none">none</option>
+    <option value="no">No</option>
+    <option value="yes">Yes</option>
+</select>   
+
+<br>
+
 <input type="submit" class="btn" value="Submit">
 {!! Form::close() !!} 
 
 
+<!-- old START  -->
+<!-- 
 {!! Form::open(['url' => '/student/searchbysubject','method'=>'post']) !!}
 <label for="name">Search by subject</label>
 <select name="subject">
@@ -25,7 +114,18 @@
 
 {!! Form::open(['url' => '/student/searchbyreligion','method'=>'post']) !!}
 <label for="religion">Search by Religion</label>
-<input type="text" name="religion" id="religion">    
+    <select name="religion" >
+        <option value="none">None</option>
+        <option value="christianity">Christianity</option>
+        <option value="hinduism">Hinduism</option>
+        <option value="islam">Islam</option>
+        <option value="sikhism">Sikhism</option>
+        <option value="buddhism">Buddhism</option>
+        <option value="jainism">Jainism</option>
+        <option value="zoroastrianism">Zoroastrianism</option>
+        <option value="others">Others/Religion not specified </option>
+
+    </select>
 <input type="submit" class="btn" value="Submit">
 {!! Form::close() !!} 
 
@@ -73,7 +173,11 @@
         <option value="yes">Yes</option>
     </select>   
 <input type="submit" class="btn" value="Submit">
-{!! Form::close() !!} 
+{!! Form::close() !!}  -->
+<!-- old ends -->
+
+
+<!-- 
 
 <a href='/'>1. Mimal  Details/information kimchang enna (Get Student Info) </a> <br>
 <a href='/'>2. Hming inang ho zawnna(Search by Name)</a><br>
@@ -85,7 +189,7 @@
 <a href='/'>8.	Semester tin a Pass leh Fail enna. A pumpui leh Core wise/Paper Wise (Search by result)</a><br>
 <a href='/'>9.	Roll No. in dawtin- Hming, Pa Hming, Registration No., Aadhaar No. leh Community leh Subject lak thlan chhuah te hian Excel-ah a Export theih a ngem? (List all)</a><br>
 <a href='/'>10. Urban leh Rural zat semester Wise (Search by rural or urban) </a><br>
-<a href='/'>11. Disabled zat hriatna/list (Search by Disable) </a><br>
+<a href='/'>11. Disabled zat hriatna/list (Search by Disable) </a><br> -->
 
 <!-- 
 <table class="table table-dark">

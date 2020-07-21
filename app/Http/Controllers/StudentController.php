@@ -330,4 +330,28 @@ class StudentController extends Controller
 
         return view('student.filter',compact('students'));
     }
+
+    //1 - 11 hmang tang tai tawh lo
+
+    public function searchBy(Request $request){
+        $searchBy=$request['searchby'];
+        $keyword=$request['keyword'];
+        $student=null;
+
+        if($searchBy=="name"){
+            $students = Student::where("name","like","%".$keyword."%")->get();
+        }
+        else if($searchBy=="collegeno"){
+            $students = Student::where("college_registration","like","%".$keyword."%")->get();
+        }
+        else if($searchBy=="universityno"){
+            $students = Student::where("mzu_registration","like","%".$keyword."%")->get();
+        }
+        else if($searchBy=="aadhaar"){
+            $students = Student::where("aadhaar","like","%".$keyword."%")->get();
+        }
+
+        return view('student.filter',compact('students'));
+    }
+    
 }

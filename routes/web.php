@@ -28,6 +28,8 @@ Route::post('/student/listall','StudentController@listAll')->name('listAll');
 Route::post('/student/searchbyarea','StudentController@searchByArea')->name('searchByArea');
 Route::post('/student/searchbydisabled','StudentController@searchByDisabled')->name('searchByDisabled');
 
+Route::post('/student/searchby','StudentController@searchBy')->name('searchBy');
+Route::post('/student/filterby','StudentController@filterBy')->name('filterBy');
 
 
 Route::resource('student','StudentController');
